@@ -63,12 +63,12 @@ HashMap * createMap(long capacity) {
         return NULL;
     }
     
-    for (unsigned short i = 0; i < capacity; i++)
+    for (long i = 0; i < capacity; i++)
     {
         map->buckets[i] = (Pair*) malloc(sizeof(Pair));
         if (map->buckets[i] == NULL)
         {
-            for (unsigned short j = 0; j < i; j++)
+            for (long j = 0; j < i; j++)
                 free(map->buckets[j]);
             free(map->buckets);
             free(map);
@@ -77,10 +77,10 @@ HashMap * createMap(long capacity) {
         map->buckets[i]->key = NULL;
         map->buckets[i]->value = NULL;
     }
+    
     map->capacity = capacity;
     map->size = 0;
     map->current = -1;
-    
     return map;
 }
 
