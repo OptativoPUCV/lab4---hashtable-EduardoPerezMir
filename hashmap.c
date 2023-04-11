@@ -71,6 +71,8 @@ HashMap * createMap(long capacity) {
         map->buckets[i] = (Pair*) malloc(sizeof(Pair));
         if (map->buckets[i] == NULL)
         {
+            for (unsigned short j = 0; j < i; j++)
+                free(map->bucket[j]);
             free(map->buckets);
             free(map);
             return NULL;
