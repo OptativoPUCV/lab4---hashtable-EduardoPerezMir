@@ -74,7 +74,7 @@ HashMap * createMap(long capacity) {
             free(map);
             return NULL;
         }
-        
+        map->buckets[i] = NULL;
         map->buckets[i]->key = NULL;
         map->buckets[i]->value = NULL;
     }
