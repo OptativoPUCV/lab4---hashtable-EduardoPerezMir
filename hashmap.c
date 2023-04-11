@@ -71,6 +71,7 @@ HashMap * createMap(long capacity) {
         map->buckets[i] = (Pair*) malloc(sizeof(Pair));
         if (map->buckets[i] == NULL)
         {
+            free(map->buckets);
             free(map);
             return NULL;
         }
@@ -78,6 +79,7 @@ HashMap * createMap(long capacity) {
         map->buckets[i]->key = NULL;
         map->buckets[i]->value = NULL;
     }
+    
     map->size = 0;
     map->current = -1;
     return map;
