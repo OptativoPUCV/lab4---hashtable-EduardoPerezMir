@@ -50,7 +50,6 @@ void enlarge(HashMap * map) {
 
 }
 
-
 HashMap * createMap(long capacity) {
     HashMap *map = NULL;
     map = (HashMap*) malloc(sizeof(HashMap));
@@ -67,13 +66,9 @@ HashMap * createMap(long capacity) {
     
     for (unsigned short i = 0; i < capacity; i++)
     {
-        map->buckets[i] = NULL;
         map->buckets[i] = (Pair*) malloc(sizeof(Pair));
         if (map->buckets[i] == NULL)
         {
-            for (unsigned short j = 0; j < i; j++)
-                free(map->buckets[j]);
-            free(map->buckets);
             free(map);
             return NULL;
         }
