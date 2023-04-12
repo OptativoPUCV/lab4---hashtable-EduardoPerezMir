@@ -50,7 +50,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     }
     
     map->buckets[indice] = (Pair*) malloc(sizeof(Pair));
-    map->buckets[indice]->key = key;
+    strcpy(map->buckets[indice]->key, key);
     map->buckets[indice]->value = value;
     map->current = indice;
     map->size++;
@@ -60,10 +60,12 @@ void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
     
     Pair** auxBuckets = (Pair**) malloc(sizeof(Pair*) * map->capacity);
+    
     for (long i = 0; i < map->capacity; i++)
     {
         auxBuckets[i] = (Pair*) malloc(sizeof(Pair));
-        auxBuckets[i] = map->buckets[i];
+        auxBuckets[i]->value = map->buckets[i]->value;
+        strcpy(auxBuckets[i]->key, map->buckets[i]->key);
     }
     long auxCapacity = map->capacity;
     map->capacity *= 2;
