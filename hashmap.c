@@ -93,7 +93,7 @@ void eraseMap(HashMap * map,  char * key) {
 Pair * searchMap(HashMap * map,  char * key) {   
     long indice = hash(key, map->capacity);
 
-    while (map->buckets[indice]->key != key)
+    while (strcmp(map->buckets[indice]->key, key) == 0)
     {
         indice++;
         if (indice == map->capacity)
