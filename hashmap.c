@@ -69,7 +69,6 @@ void enlarge(HashMap * map) {
             auxBuckets[i] = (Pair*) malloc(sizeof(Pair));
             auxBuckets[i]->value = map->buckets[i]->value;
             auxBuckets[i]->key = map->buckets[i]->key;
-            puts(auxBuckets[i]->key);
         }
     }
     
@@ -84,7 +83,10 @@ void enlarge(HashMap * map) {
     
     for (long i = 0; i < auxCapacity; i++)
         if (auxBuckets[i] != NULL)
+        {
+            puts(auxBuckets[i]->key);
             insertMap(map, auxBuckets[i]->key, auxBuckets[i]->value);
+        }
 }
 
 HashMap * createMap(long capacity) {
