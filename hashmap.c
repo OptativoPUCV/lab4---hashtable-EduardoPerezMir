@@ -68,9 +68,10 @@ void enlarge(HashMap * map) {
     map->buckets = (Pair **) realloc(map->buckets, sizeof(Pair*) * map->capacity);
     if (map->buckets == NULL)
         return;
+    
     map->size = 0;
     for (long i = 0; i < auxCapacity; i++)
-        if (auxBuckets[i] != NULL)
+        if (auxBuckets[i] != NULL && auxBuckets[i]->key != NULL)
             insertMap(map, auxBuckets[i]->key, auxBuckets[i]->value);
 }
 
