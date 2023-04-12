@@ -63,16 +63,15 @@ void enlarge(HashMap * map) {
     for (long i = 0; i < map->capacity; i++)
         auxBuckets[i] = map->buckets[i];
     
-    //long auxCapacity = map->capacity;
-    //map->capacity *= 2;
-   // map->buckets = (Pair **) realloc(map->buckets, sizeof(Pair*) * map->capacity);
-   // if (map->buckets == NULL)
-     //   return;
-  //  map->size = 0;
-   // for (long i = 0; i < auxCapacity; i++)
-     //   if (auxBuckets[i] != NULL)
-       //     insertMap(map, auxBuckets[i]->key, auxBuckets[i]->value);
-    
+    long auxCapacity = map->capacity;
+    map->capacity *= 2;
+    map->buckets = (Pair **) realloc(map->buckets, sizeof(Pair*) * map->capacity);
+    if (map->buckets == NULL)
+        return;
+    map->size = 0;
+    for (long i = 0; i < auxCapacity; i++)
+        if (auxBuckets[i] != NULL)
+            insertMap(map, auxBuckets[i]->key, auxBuckets[i]->value);
 }
 
 HashMap * createMap(long capacity) {
