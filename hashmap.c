@@ -65,15 +65,7 @@ HashMap * createMap(long capacity) {
     
     for (long i = 0; i < capacity; i++)
     {
-        map->buckets[i] = (Pair*) malloc(sizeof(Pair));
-        if (map->buckets[i] == NULL)
-        {
-            for (long j = 0; j < i; j++)
-                free(map->buckets[j]);
-            free(map->buckets);
-            free(map);
-            return NULL;
-        }
+        map->buckets[i] = NULL;
         map->buckets[i]->key = NULL;
         map->buckets[i]->value = NULL;
     }
