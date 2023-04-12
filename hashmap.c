@@ -58,8 +58,16 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
-
-
+    Pair** auxBuckets = map->buckets;
+    long auxCapacity = map->capacity;
+    map->capacity *= 2;
+    map->buckets = (Pair **) realloc(map->buckets, sizeof(Pair*) * map->capacity);
+    if (map->buckets == NULL)
+        return;
+    map->size = 0;
+    for (long i = 0; i < auxCapacity; i++)
+        insertMap(map, auxBuckets[i]->key, auxBuckets[i]->value);
+    
 }
 
 HashMap * createMap(long capacity) {
