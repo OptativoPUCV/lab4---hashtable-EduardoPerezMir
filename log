@@ -231,3 +231,14 @@ Wed 12 Apr 2023 10:56:40 PM UTC:
  1 file changed, 2 insertions(+), 2 deletions(-)
  tests:  0|0
 c164e1c
+Wed 12 Apr 2023 10:57:47 PM UTC: 
+ hashmap.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:62:25: error: initialization of ‘Pair **’ from incompatible pointer type ‘Pair *’ [-Werror=incompatible-pointer-types]
+   62 |     Pair** auxBuckets = (Pair*) malloc(sizeof(Pair*) * map->capacity);
+      |                         ^
+cc1: all warnings being treated as errors
+Compilation failed
+9c45f48

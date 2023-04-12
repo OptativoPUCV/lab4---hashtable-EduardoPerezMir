@@ -58,7 +58,9 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
-    Pair** auxBuckets = map->buckets;
+    
+    Pair** auxBuckets = (Pair*) malloc(sizeof(Pair*) * map->capacity);
+    auxBuckets = map->buckets;
     long auxCapacity = map->capacity;
     map->capacity *= 2;
     map->buckets = (Pair **) realloc(map->buckets, sizeof(Pair*) * map->capacity);
