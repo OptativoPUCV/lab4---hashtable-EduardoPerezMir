@@ -80,11 +80,15 @@ void enlarge(HashMap * map) {
         return;
     
     map->size = 0;
+    for (long i = 0; i < map->capacity; i++)
+    {
+        if (map->buckets[i] != NULL)
+            puts(map->buckets[i]->key);
+    }
     
     for (long i = 0; i < auxCapacity; i++)
         if (auxBuckets[i] != NULL)
         {
-            puts(auxBuckets[i]->key);
             insertMap(map, auxBuckets[i]->key, auxBuckets[i]->value);
         }
 }
