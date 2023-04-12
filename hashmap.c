@@ -63,10 +63,14 @@ void enlarge(HashMap * map) {
     
     for (long i = 0; i < map->capacity; i++)
     {
-        auxBuckets[i] = (Pair*) malloc(sizeof(Pair));
-        auxBuckets[i]->value = map->buckets[i]->value;
-        strcpy(auxBuckets[i]->key, map->buckets[i]->key);
+        if (map->buckets[i] != NULL)
+        {
+            auxBuckets[i] = (Pair*) malloc(sizeof(Pair));
+            auxBuckets[i]->value = map->buckets[i]->value;
+            strcpy(auxBuckets[i]->key, map->buckets[i]->key);
+        }
     }
+    
     long auxCapacity = map->capacity;
     map->capacity *= 2;
     

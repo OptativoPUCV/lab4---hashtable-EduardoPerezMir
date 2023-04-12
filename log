@@ -304,3 +304,14 @@ hashmap.c:68:9: error: ‘*(Pair *)malloc (16).key’ may be used uninitialized 
 cc1: all warnings being treated as errors
 Compilation failed
 1335592
+Wed 12 Apr 2023 11:19:46 PM UTC: 
+ hashmap.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:70:13: error: ‘*(Pair *)malloc (16).key’ may be used uninitialized [-Werror=maybe-uninitialized]
+   70 |             strcpy(auxBuckets[i]->key, map->buckets[i]->key);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+03a6a67
