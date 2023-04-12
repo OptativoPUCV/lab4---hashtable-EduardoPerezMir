@@ -50,7 +50,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     }
     
     map->buckets[indice] = (Pair*) malloc(sizeof(Pair));
-    strcpy(map->buckets[indice]->key, key);
+    map->buckets[indice]->key = key;
     map->buckets[indice]->value = value;
     map->current = indice;
     map->size++;
