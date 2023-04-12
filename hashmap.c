@@ -60,7 +60,7 @@ void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
     
     Pair** auxBuckets = (Pair**) malloc(sizeof(Pair*) * map->capacity);
-    //auxBuckets = map->buckets;
+    auxBuckets = map->buckets;
     //long auxCapacity = map->capacity;
     //map->capacity *= 2;
    // map->buckets = (Pair **) realloc(map->buckets, sizeof(Pair*) * map->capacity);

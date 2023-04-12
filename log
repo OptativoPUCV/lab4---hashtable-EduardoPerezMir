@@ -258,3 +258,14 @@ hashmap.c:62:12: error: unused variable ‘auxBuckets’ [-Werror=unused-variabl
 cc1: all warnings being treated as errors
 Compilation failed
 2674d30
+Wed 12 Apr 2023 10:58:43 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:62:12: error: variable ‘auxBuckets’ set but not used [-Werror=unused-but-set-variable]
+   62 |     Pair** auxBuckets = (Pair**) malloc(sizeof(Pair*) * map->capacity);
+      |            ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+4f16144
