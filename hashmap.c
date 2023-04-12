@@ -131,7 +131,8 @@ Pair * searchMap(HashMap * map,  char * key) {
 
 Pair * firstMap(HashMap * map) {
     long indice = 0;
-    while (map->buckets[indice] == NULL)
+    
+    while (map->buckets[indice] == NULL || map->buckets[indice]->key == NULL)
     {
         indice++;
         if (indice == map->capacity)
