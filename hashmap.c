@@ -67,7 +67,8 @@ void enlarge(HashMap * map) {
         if (map->buckets[i] != NULL)
         {
             auxBuckets[i] = (Pair*) malloc(sizeof(Pair));
-            auxBuckets[i] = map->buckets[i];
+            auxBuckets[i]->value = map->buckets[i]->value;
+            auxBuckets[i]->key = map->buckets[i]->key;
         }
     }
     
