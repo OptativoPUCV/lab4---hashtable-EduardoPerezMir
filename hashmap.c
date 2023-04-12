@@ -66,8 +66,6 @@ HashMap * createMap(long capacity) {
     for (long i = 0; i < capacity; i++)
     {
         map->buckets[i] = NULL;
-        map->buckets[i]->key = NULL;
-        map->buckets[i]->value = NULL;
     }
     
     map->capacity = capacity;
