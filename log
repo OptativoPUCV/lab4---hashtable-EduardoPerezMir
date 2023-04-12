@@ -326,3 +326,8 @@ hashmap.c:71:13: error: ‘*(Pair *)malloc (16).key’ may be used uninitialized
 cc1: all warnings being treated as errors
 Compilation failed
 d07d946
+Wed 12 Apr 2023 11:21:18 PM UTC: 
+ hashmap.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+ tests:  0|0
+1db3503
